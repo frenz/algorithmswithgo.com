@@ -33,7 +33,22 @@ package module01
 // 3. Always return the index of the two values who have a minimal
 //    difference. Eg prefer the values 2, 2 over 1, 3 over 0, 4
 //    for the sum of 4.
-//
+// [1,2,3,4,] 17 -1,-1        2,4
+// [,2,3,4,5]
+// [,,3,4,5]
+// [,,,4,5]
+// [,,,,5]
+
 func FindTwoThatSum(numbers []int, sum int) (int, int) {
-	return 0, 0
+	var indexOne, indexTwo int
+	indexOne = -1
+	indexTwo = -1
+	for i := 0; i < len(numbers)-1; i++ {
+		for j := i + 1; j < len(numbers); j++ {
+			if numbers[i]+numbers[j] == sum {
+				return i, j
+			}
+		}
+	}
+	return indexOne, indexTwo
 }
